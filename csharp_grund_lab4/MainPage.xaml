@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:csharp_grund_lab4"
+             mc:Ignorable="d"
+             Title="C# - Lab 4"
+             x:Class="csharp_grund_lab4.MainPage">
+
+
+    <ContentPage.BindingContext>
+        <local:MainViewModel />
+    </ContentPage.BindingContext>
+
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Prev"
+                     Command="{Binding PrevCountryCommand}"/>
+        <ToolbarItem Text="Next"
+                     Command="{Binding NextCountryCommand}"/>
+    </ContentPage.ToolbarItems>
+
+
+    <Grid HorizontalOptions="FillAndExpand"
+          VerticalOptions="FillAndExpand">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+
+    <!-- Flag -->
+
+        <Image Source="{Binding PictureUrl}"
+               Aspect="Fill"
+               Grid.Row="0"
+               HorizontalOptions="FillAndExpand"
+               VerticalOptions="FillAndExpand"/>
+
+        <Frame HasShadow="False"
+               Margin="16"
+               Padding="8"
+               Opacity="0.75"
+               CornerRadius="2"
+               HorizontalOptions="FillAndExpand"
+               VerticalOptions="Start"
+               Grid.Row="0">
+
+            <Label FontSize="32"
+                   FontAttributes="Bold"
+                   TextColor="Black"
+                   Text="{Binding Name}"
+                   HorizontalOptions="Center" />
+
+        </Frame>
+
+
+        <Grid HorizontalOptions="FillAndExpand"
+              VerticalOptions="Start"
+              Padding="16"
+              ColumnSpacing="16"
+              RowSpacing="16"
+              Grid.Row="1">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="33*" />
+                <ColumnDefinition Width="66*" />
+            </Grid.ColumnDefinitions>
+
+
+        <!-- Currency -->
+
+            <Label FontSize="16"
+                   Text="Currency:"
+                   HorizontalTextAlignment="End"
+                   HorizontalOptions="FillAndExpand"
+                   Grid.Row="0" Grid.Column="0" />
+
+            <Label FontSize="16"
+                   Text="{Binding Currency}"
+                   HorizontalOptions="FillAndExpand"
+                   Grid.Row="0" Grid.Column="1" />
+
+
+        <!-- Population -->
+
+            <Label FontSize="16"
+                   Text="Population:"
+                   HorizontalTextAlignment="End"
+                   HorizontalOptions="FillAndExpand"
+                   Grid.Row="1" Grid.Column="0" />
+
+            <Label FontSize="16"
+                   Text="{Binding Population}"
+                   HorizontalOptions="FillAndExpand"
+                   Grid.Row="1" Grid.Column="1" />
+
+
+        <!-- Description -->
+
+            <Label FontSize="16"
+                   Text="Description:"
+                   HorizontalTextAlignment="End"
+                   HorizontalOptions="FillAndExpand"
+                   Grid.Row="2" Grid.Column="0" />
+
+            <ScrollView HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand"
+                        VerticalScrollBarVisibility="Always"
+                        Grid.Row="2" Grid.Column="1">
+
+                <Label FontSize="16"
+                       LineBreakMode="WordWrap"
+                       Text="{Binding Description}"
+                       HorizontalOptions="FillAndExpand"/>
+
+            </ScrollView>
+
+        </Grid>
+
+    </Grid>
+
+
+</ContentPage>

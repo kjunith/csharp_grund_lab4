@@ -1,0 +1,47 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="4.2.0.709249" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.2.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="EmptyClass.cs" />
+    <Compile Remove="MyPage.xaml.cs" />
+    <Compile Remove="MyPage.cs" />
+    <Compile Remove="App.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="norway.png" />
+    <None Remove="sweden.png" />
+    <None Remove="denmark.png" />
+    <None Remove="App.xml" />
+    <None Remove="appsettings.json" />
+    <None Remove="app.config" />
+    <None Remove="rawData.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="norway.png" />
+    <Content Include="sweden.png" />
+    <Content Include="denmark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="MyPage.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="rawData.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>
